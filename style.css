@@ -173,3 +173,48 @@ button { cursor: pointer; font-family: var(--font-body); border: none; }
 .product-name { font-size: 13px; font-weight: 500; margin-bottom: 2px; }
 .product-price { font-size: 14px; color: var(--rose); font-weight: 500; margin-bottom: 10px; }
 
+.qty-controls {
+  display: flex;
+  align-items: center;
+  background: #f5eeeb;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 34px;
+}
+.qty-minus, .qty-plus {
+  width: 34px; height: 34px;
+  background: transparent;
+  color: var(--ink);
+  font-size: 18px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.qty-minus:hover, .qty-plus:hover {
+  background: rgba(196,122,138,0.15);
+}
+.qty-input {
+  width: 36px; height: 34px;
+  border: none;
+  background: transparent;
+  text-align: center;
+  font-size: 14px; font-weight: 500;
+  color: var(--ink);
+  -moz-appearance: textfield;   /* hide number arrows in Firefox */
+}
+/* Hide the browser's default up/down arrows on number inputs */
+.qty-input::-webkit-outer-spin-button,
+.qty-input::-webkit-inner-spin-button { -webkit-appearance: none; }
+.qty-input:focus { outline: none; }
+
+/* "Remove all" link — hidden until the card is selected */
+.remove-btn {
+  display: none;
+  margin-top: 8px;
+  background: none;
+  color: var(--ink-3);
+  font-size: 11px;
+  text-decoration: underline;
+  padding: 0;
+}
+.product-card.selected .remove-btn { display: block; }
+
