@@ -66,6 +66,10 @@ button { cursor: pointer; font-family: var(--font-body); border: none; }
   justify-content: center;
 }
 
+.nav-logo-link {
+  text-decoration: none;
+}
+
 .hero {
   padding: 64px 24px 48px;
   text-align: center;
