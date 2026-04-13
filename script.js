@@ -27,3 +27,35 @@ function totalPrice() {
   }, 0);
 }
 
+function renderProducts() {
+  const grid = document.getElementById("productGrid");
+  grid.innerHTML = products.map(p => {
+    const qty   = cart[p.id] || 0;
+    const isSel = qty > 0;
+    return `
+      <div class="product-card${isSel ? " selected" : ""}" id="card-${p.id}">
+        <div class="product-img">
+          <span style="font-size:40px">${p.img}</span>
+          <div class="selected-tick"></div>
+        </div>
+        <div class="product-body">
+          <div class="product-name">${p.name}</div>
+          <div class="product-price">${fmt(p.price)}</div>
+          <div class="qty-controls">
+            <button class="qty-minus" onclick="setQty(${p.id}, (cart[${p.id}]||0) - 1)">−</button>
+            <input
+              class="qty-input"
+              type="number"
+              min="0"
+              value="${qty}"
+              id="inp-${p.id}"
+              oninput="handleInput(${p.id}, this.value)"
+            />
+            <button class="qty-plus" onclick="setQty(${p.id}, (cart[${p.id}]||0) + 1)">+</button>
+          </div>
+          <button class="remove-btn" onclick="setQty(${p.id}, 0)">Remove all</button>
+        </div>
+      </div>`;
+  }).join("");
+}
+
