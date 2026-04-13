@@ -27,6 +27,16 @@ function totalPrice() {
   }, 0);
 }
 
+function sendGeneralInquiry() {
+  const phone = "2349160911119";
+  const message = "Hello LuxeWigs! 👋\n\nI'd like to inquire about your wigs or have a question about sizes/availability. Can we chat?";
+  
+  window.open(
+    `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
+    "_blank"
+  );
+}
+
 function renderProducts() {
   const grid = document.getElementById("productGrid");
   grid.innerHTML = products.map(p => {

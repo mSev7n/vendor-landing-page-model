@@ -102,6 +102,14 @@ button { cursor: pointer; font-family: var(--font-body); border: none; }
   font-weight: 500;
   text-decoration: none;
   display: inline-block;
+  transition: transform 0.3s ease-in-out;
+}
+
+.hero-cta:hover {
+  background: lightgray;
+  transform: scale(1.1);
+  color: black;
+  box-shadow: black 0px 2px;
 }
 
 .divider { border: none; border-top: 1px solid var(--border); margin: 0 24px; }
@@ -199,7 +207,6 @@ button { cursor: pointer; font-family: var(--font-body); border: none; }
   text-align: center;
   font-size: 14px; font-weight: 500;
   color: var(--ink);
-  -moz-appearance: textfield;   /* hide number arrows in Firefox */
 }
 /* Hide the browser's default up/down arrows on number inputs */
 .qty-input::-webkit-outer-spin-button,
@@ -257,3 +264,36 @@ button { cursor: pointer; font-family: var(--font-body); border: none; }
   gap: 10px;
 }
 
+.contact-btn:hover {
+  background: var(--rose-lt);
+  border:  1px solid var(--rose);
+  text-shadow: lightgray 0px 10px;
+  color: black;
+  box-shadow: lightgray 0px 5px;
+}
+
+#hero-divider {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* Secondary contact button (always visible) */
+.contact-btn {
+  display: inline-block;
+  width: 100%;
+  background: var(--rose);
+  color: #fff;
+  border: 1px solid var(--border);
+  padding: 13px 28px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 500;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+  text-decoration: none;
+}
+
+
+  
