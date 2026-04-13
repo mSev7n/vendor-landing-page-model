@@ -59,3 +59,42 @@ function renderProducts() {
   }).join("");
 }
 
+// Called when the user types directly into the input box
+function handleInput(id, val) {
+  const n = parseInt(val, 10);
+  if (!isNaN(n) && n >= 0) {
+    setQty(id, n, false); // false = don't overwrite the input while typing
+  }
+}
+
+// The central function — all changes go through here
+function setQty(id, qty, rerender = true) {
+  qty = Math.max(0, Math.round(qty));  // never go below 0
+
+  if (qty === 0) {
+    delete cart[id];   // remove from cart entirely
+  } else {
+    cart[id] = qty;    // store the quantity
+  }
+
+  // Update just this card (no full page re-render — avoids losing input focus)
+  const card  = document.getElementById("card-" + id);
+  const input = document.getElementById("inp-" + id);
+
+  if (card) {
+    qty > 0
+      ? card.classList.add("selected")
+      : card.classList.remove("selected");
+  }
+  if (rerender && input && document.activeElement !== input) {
+    input.value = qty;
+  }
+
+  renderCart();    // refresh the order summary below
+  updateBadge();   // update the count in the nav
+}
+
+function updateBadge() {
+  document.getElementById("cartBadge").textContent = totalItems();
+}
+
