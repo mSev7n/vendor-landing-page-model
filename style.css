@@ -104,3 +104,26 @@ button { cursor: pointer; font-family: var(--font-body); border: none; }
   display: inline-block;
 }
 
+.divider { border: none; border-top: 1px solid var(--border); margin: 0 24px; }
+
+.section-header { padding: 40px 24px 8px; }
+.section-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rose); margin-bottom: 6px; }
+.section-title { font-family: var(--font-display); font-size: 28px; font-weight: 400; }
+.section-sub { font-size: 13px; color: var(--ink-3); }
+
+.hint-banner {
+  margin: 16px 24px 0;
+  background: var(--rose-lt);
+  border: 1px solid #f4c0d1;
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #72243e;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);  /* this shows 2 columns on mobile */
+  gap: 14px;
+  padding: 20px 24px 32px;
+}
