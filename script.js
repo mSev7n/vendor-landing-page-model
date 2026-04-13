@@ -165,3 +165,23 @@ function buildMessage() {
   return lines.join("\n");  // join all lines with newline characters
 }
 
+function sendToWhatsApp() {
+  if (!Object.keys(cart).length) return;
+
+  // ⚠️  Change this to the real phone number
+  // Format: country code + number, no +, no spaces
+  // Nigeria example: 2348012345678
+  const phone   = "2348000000000";
+  const message = buildMessage();
+
+  // encodeURIComponent converts newlines and special chars so they survive the URL
+  window.open(
+    `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
+    "_blank"
+  );
+}
+
+function scrollToCart() {
+  document.getElementById("cartSection").scrollIntoView({ behavior: "smooth" });
+}
+
