@@ -185,3 +185,5 @@ function scrollToCart() {
   document.getElementById("cartSection").scrollIntoView({ behavior: "smooth" });
 }
 
+renderProducts();
+renderCart();
