@@ -1,0 +1,25 @@
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --rose:    #c47a8a;   /* main brand colour */
+  --rose-dk: #9e5a6a;   /* darker version for hover states */
+  --rose-lt: #fbeaf0;   /* light pink for backgrounds */
+  --cream:   #fdf8f4;   /* page background */
+  --ink:     #1a1a1a;   /* near-black for text */
+  --ink-3:   #888;      /* muted grey text */
+  --border:  #e8ddd8;   /* subtle border colour */
+  --white:   #ffffff;
+  --green:   #25D366;   /* WhatsApp green */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'DM Sans', sans-serif;
+  --radius:  12px;      /* card roundness */
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.6;
+}
+button { cursor: pointer; font-family: var(--font-body); border: none; }
