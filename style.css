@@ -127,3 +127,49 @@ button { cursor: pointer; font-family: var(--font-body); border: none; }
   gap: 14px;
   padding: 20px 24px 32px;
 }
+
+.product-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+/* When selected, the border turns rose and gets a soft glow */
+.product-card.selected {
+  border-color: var(--rose);
+  box-shadow: 0 0 0 2px rgba(196,122,138,0.18);
+}
+.product-img {
+  aspect-ratio: 1 / 1;       /* perfect square */
+  background: #f5eeeb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;        /* needed for the tick badge inside */
+}
+/* The little pink circle tick that appears when selected */
+.selected-tick {
+  display: none;
+  position: absolute;
+  top: 8px; right: 8px;
+  width: 22px; height: 22px;
+  background: var(--rose);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+}
+.selected-tick::after {
+  content: '';
+  width: 5px; height: 9px;
+  border: 2px solid #fff;
+  border-top: none; border-left: none;
+  transform: rotate(45deg) translateY(-1px);
+}
+/* Only show the tick when the card has the .selected class */
+.product-card.selected .selected-tick { display: flex; }
+
+.product-body { padding: 12px 12px 14px; }
+.product-name { font-size: 13px; font-weight: 500; margin-bottom: 2px; }
+.product-price { font-size: 14px; color: var(--rose); font-weight: 500; margin-bottom: 10px; }
+
