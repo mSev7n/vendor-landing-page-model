@@ -31,14 +31,32 @@
         <div class="section-title">Choose your wigs</div>
         <div class="section-sub">Select items, set your quantity, then request your order below</div>
       </div>
-  
+
       <div class="hint-banner">
         Tap a wig to add it to your order. Type the exact quantity or use + / −, then scroll down to send.
       </div>
-  
+
       <!-- JavaScript will fill this div with product cards -->
       <div class="products" id="productGrid"></div>
     </section>
+
+    <hr class="divider" />
+
+    <section class="cart-section" id="cartSection">
+      <div class="cart-title">Your order</div>
+
+      <!-- JavaScript fills this with cart items -->
+      <div id="cartBody">
+        <div class="cart-empty">No items yet — tap a wig above to start your order.</div>
+      </div>
+
+      <!-- Hidden until items are added -->
+      <button class="wa-btn" id="waBtn" onclick="sendToWhatsApp()">
+        Send order via WhatsApp
+      </button>
+    </section>
+
+    
 
     <script src="script.js"></script>
 </body>
