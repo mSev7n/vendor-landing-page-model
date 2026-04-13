@@ -98,3 +98,70 @@ function updateBadge() {
   document.getElementById("cartBadge").textContent = totalItems();
 }
 
+function renderCart() {
+  const body  = document.getElementById("cartBody");
+  const waBtn = document.getElementById("waBtn");
+  const keys  = Object.keys(cart);
+
+  // If cart is empty, show the placeholder and hide the button
+  if (!keys.length) {
+    body.innerHTML = `<div class="cart-empty">No items yet — tap a wig above to start your order.</div>`;
+    waBtn.style.display = "none";
+    return;
+  }
+
+  // Build a row for each item in the cart
+  let html = "";
+  keys.forEach(id => {
+    const p   = products.find(x => x.id == id);
+    const sub = p.price * cart[id];
+    html += `
+      <div class="cart-item">
+        <div>
+          <div class="cart-item-name">${p.name}</div>
+          <div class="cart-item-sub">Qty: ${cart[id]} &times; ${fmt(p.price)}</div>
+        </div>
+        <div class="cart-item-price">${fmt(sub)}</div>
+      </div>`;
+  });
+
+  // Add the total row at the bottom
+  html += `
+    <div class="cart-total-row">
+      <span>Total</span>
+      <span>${fmt(totalPrice())}</span>
+    </div>`;
+
+  body.innerHTML = html;
+  waBtn.style.display = "flex";  // show the WhatsApp button
+}
+
+function buildMessage() {
+  const keys  = Object.keys(cart);
+  const lines = [];
+
+  lines.push("Hello LuxeWigs! 👋");
+  lines.push("I'd like to place an order:");
+  lines.push("");                       // blank line for breathing room
+  lines.push("─────────────────");
+  lines.push("");
+
+  keys.forEach((id, i) => {
+    const p = products.find(x => x.id == id);
+    lines.push(`${i + 1}. ${p.name}`);
+    lines.push(`   Qty: ${cart[id]}`);
+    lines.push(`   ${fmt(p.price)}${cart[id] > 1 ? " each" : ""}`);
+    // Blank line between items, but not after the last one
+    if (i < keys.length - 1) lines.push("");
+  });
+
+  lines.push("");
+  lines.push("─────────────────");
+  lines.push(`Total: ${fmt(totalPrice())}`);
+  lines.push("");
+  lines.push("Please confirm what's available.");
+  lines.push("Thank you! 🙏");
+
+  return lines.join("\n");  // join all lines with newline characters
+}
+
