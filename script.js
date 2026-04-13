@@ -171,7 +171,7 @@ function sendToWhatsApp() {
   // ⚠️  Change this to the real phone number
   // Format: country code + number, no +, no spaces
   // Nigeria example: 2348012345678
-  const phone   = "2348000000000";
+  const phone   = "2349160911119";
   const message = buildMessage();
 
   // encodeURIComponent converts newlines and special chars so they survive the URL
