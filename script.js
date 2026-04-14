@@ -28,7 +28,7 @@ function totalPrice() {
 }
 
 function sendGeneralInquiry() {
-  const phone = "2349160911119";
+  const phone = "2349133497457"; // change to client's realnumber countrycode + number, no +, no spaces
   const message = "Hello LuxeWigs! 👋\n\nI'd like to inquire about your wigs or have a question about sizes/availability. Can we chat?";
   
   window.open(
